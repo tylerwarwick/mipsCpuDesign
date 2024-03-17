@@ -1,0 +1,8 @@
+- Define control signals in control component
+- Sign Extend logic
+- In CPU Module:
+    - Implement control Module
+    - Implement sign extend Module
+    - Port map control block
+    - Port map sign extend block
+    
