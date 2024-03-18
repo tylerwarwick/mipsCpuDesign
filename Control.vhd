@@ -98,7 +98,7 @@ begin
 				alu_op		<=	"00";
 				alu_src		<=	'1';
 				reg_dest		<=	'1';
-				reg_load		<=	'';
+				reg_load		<=	'0';
 				reg_src		<=	"01";
 				mem_read		<=	'0';
 				mem_write	<=	'0';

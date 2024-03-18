@@ -133,7 +133,7 @@ begin
 		clk			=>		clk,
 		clear			=>		clear,
 		a_addr		=>		rd,
-		a_data		=>		Sout,
+		a_data		=>		alu_result,
 		load			=>		ctrl_reg_load,
 		b_addr		=>		rs,
 		c_addr		=>		reg_dest_mux_out,
