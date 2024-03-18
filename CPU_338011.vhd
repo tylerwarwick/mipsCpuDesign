@@ -41,9 +41,28 @@ architecture Behavioral of CPU_3380 is
 		);
 	END COMPONENT;
 
-  -- TODO 1: Implement the control component
 
-  -- TODO 2: Implement the signextend component
+	COMPONENT Control 
+	port(
+		op			:	in	std_logic_vector( 3 downto 0);
+		alu_op		:	out	std_logic_vector( 1 downto 0);
+		alu_src		:	out	std_logic;
+		reg_dest	:	out	std_logic;
+		reg_load	:	out	std_logic;
+		reg_src		:	out	std_logic_vector(1 downto 0);
+		mem_read	:	out	std_logic;
+		mem_write	:	out	std_logic
+		);
+	END COMPONENT;
+
+
+	COMPONENT Signextend 
+	port(
+		immIn		:	in	std_logic_vector( 3 downto 0);
+		immOut		:	out	std_logic_vector(15 downto 0)
+		);
+	END COMPONENT;
+
 
 
 	component mux3_1
@@ -57,7 +76,7 @@ architecture Behavioral of CPU_3380 is
 	end component;
 
 	component mux2_1
-   generic (WIDTH : positive:=16);
+   	generic (WIDTH : positive:=16);
 	port(
 		Input1		:	in		std_logic_vector(WIDTH-1 	downto 0);
 		Input2		:	in		std_logic_vector(WIDTH-1 	downto 0);
@@ -99,23 +118,33 @@ begin
 	--------------------------------------------------------------------------
 	-- Instruction Decode
 	--------------------------------------------------------------------------
-	-- TODO 3: Implement the complete port map for the control
+	CPU_Control:		Control port map(
+		op => op,
+		alu_op => ctrl_alu_op,
+		alu_src => ctrl_alu_src,
+		reg_dest => ctrl_reg_dest,
+		reg_load => ctrl_reg_load,
+		reg_src => ctrl_reg_src,
+		mem_read => ctrl_mem_read,
+		mem_write => ctrl_mem_write
+	)
 
-	-- TODO 4: Finish the port map for the register file
 	CPU_Registers_0:		Registers port map(
 		clk			=>		clk,
 		clear			=>		clear,
 		a_addr		=>		rd,
-		a_data		=>		,
-		load			=>		,
+		a_data		=>		Sout,
+		load			=>		ctrl_reg_load,
 		b_addr		=>		rs,
-		c_addr		=>		,
+		c_addr		=>		reg_dest_mux_out,
 		b_data		=>		rs_data,
 		c_data		=>		rt_data
 	);
 
--- TODO 5: Implement the complete port map for the signextend
-
+	CPU_SignExtend: 		Signextend port map(
+		immIn => rt,
+		immOut => sign_ex_out
+	)
 
 CPU_reg_dest_mux:		mux2_1 generic map(4) port map(
 	Input1		=>		rt,

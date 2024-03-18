@@ -1,8 +1,9 @@
 - Define control signals in control component X
 - Sign Extend logic X
 - In CPU Module:
-    - Implement control Module
-    - Implement sign extend Module
-    - Port map control block
-    - Port map sign extend block
+    - Implement control Module X
+    - Implement sign extend Module X
+    - Port map registers X
+    - Port map control block X
+    - Port map sign extend block X
     
