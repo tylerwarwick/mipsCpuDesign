@@ -1,5 +1,5 @@
-- Define control signals in control component
-- Sign Extend logic
+- Define control signals in control component X
+- Sign Extend logic X
 - In CPU Module:
     - Implement control Module
     - Implement sign extend Module

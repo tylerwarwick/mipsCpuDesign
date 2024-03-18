@@ -32,60 +32,56 @@ begin
 				mem_read		<=	'0';
 				mem_write	<=	'0';
 
-				-- TODO 1: Implement the subtraction
+				
 			-- op=1, SUB
 			when x"1" =>
 				alu_op		<=	"01";
-				alu_src		<=	'';
-				reg_dest		<=	';
-				reg_load		<=	'';
-				reg_src		<=	"";
-				mem_read		<=	'';
-				mem_write	<=	'';
+				alu_src		<=	'0';
+				reg_dest		<=	'0';
+				reg_load		<=	'1';
+				reg_src		<=	"01";
+				mem_read		<=	'0';
+				mem_write	<=	'0';
 
-				-- TODO 2: Implement the AND
 			-- op=2, AND
 			when x"2" =>
 				alu_op		<=	"10";
-				alu_src		<=	'';
-				reg_dest		<=	'';
-				reg_load		<=	'';
-				reg_src		<=	"";
-				mem_read		<=	'';
-				mem_write	<=	'';
+				alu_src		<=	'0';
+				reg_dest		<=	'0';
+				reg_load		<=	'1';
+				reg_src		<=	"01";
+				mem_read		<=	'0';
+				mem_write	<=	'0';
 
-				-- TODO 3: Implement the OR
 			-- op=3, OR
 			when x"3" =>
-				alu_op		<=	"";
-				alu_src		<=	'';
-				reg_dest		<=	'';
-				reg_load		<=	'';
-				reg_src		<=	"";
-				mem_read		<=	'';
-				mem_write	<=	'';
+				alu_op		<=	"11";
+				alu_src		<=	'0';
+				reg_dest		<=	'0';
+				reg_load		<=	'1';
+				reg_src		<=	"01";
+				mem_read		<=	'0';
+				mem_write	<=	'0';
 
-		  	-- TODO 4: Implement the addition immeadiate
 			-- op=4, ADDi
 			when x"4" =>
-				alu_op		<=	"";
-				alu_src		<=	'';
-				reg_dest		<=	'';
-				reg_load		<=	'';
-				reg_src		<=	"";
-				mem_read		<=	'';
-				mem_write	<=	'';
+				alu_op		<=	"00";
+				alu_src		<=	'1';
+				reg_dest		<=	'X';
+				reg_load		<=	'1';
+				reg_src		<=	"01";
+				mem_read		<=	'0';
+				mem_write	<=	'0';
 
-				-- TODO 5: Implement the subtraction immeadiate
 			-- op=5, SUBi
 			when x"5" =>
-				alu_op		<=	"";
-				alu_src		<=	'';
-				reg_dest		<=	'';
-				reg_load		<=	'';
-				reg_src		<=	"";
-				mem_read		<=	'';
-				mem_write	<=	'';
+				alu_op		<=	"01";
+				alu_src		<=	'1';
+				reg_dest		<=	'X';
+				reg_load		<=	'1';
+				reg_src		<=	"01";
+				mem_read		<=	'0';
+				mem_write	<=	'0';
 
 			-- op=8, LW
 			when x"8" =>
@@ -97,16 +93,15 @@ begin
 				mem_read		<=	'1';
 				mem_write	<=	'0';
 
-				-- TODO 6: Implement the store word
 			-- op=C, SW
 			when x"C" =>
-				alu_op		<=	"";
-				alu_src		<=	'';
-				reg_dest		<=	'';
+				alu_op		<=	"00";
+				alu_src		<=	'1';
+				reg_dest		<=	'1';
 				reg_load		<=	'';
-				reg_src		<=	"";
-				mem_read		<=	'';
-				mem_write	<=	'';
+				reg_src		<=	"01";
+				mem_read		<=	'0';
+				mem_write	<=	'0';
 
 			-- op=7, SLT
 			when x"7" =>
